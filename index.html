@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Undangan Pernikahan I & E</title>
+
+<!-- =====================
+STYLE / DESAIN
+===================== -->
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4f6f5;
+  color: #333;
+}
+
+/* HALAMAN PEMBUKA */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #2e7d32, #66bb6a);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 999;
+  text-align: center;
+}
+
+.overlay h1 {
+  font-size: 48px;
+  letter-spacing: 5px;
+}
+
+.overlay button {
+  margin-top: 20px;
+  padding: 14px 30px;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  background: white;
+  color: #2e7d32;
+}
+
+/* HEADER FOTO */
+.hero {
+  background: linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.4)),
+              url('foto.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  margin: 10px 0;
+}
+
+/* BAGIAN KONTEN */
+.section {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.1);
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h3 {
+  color: #2e7d32;
+}
+
+/* COUNTDOWN */
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.time-box {
+  background: #2e7d32;
+  color: white;
+  width: 80px;
+  padding: 15px;
+  border-radius: 12px;
+}
+
+.time-box span {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* TOMBOL */
+.btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 14px 26px;
+  background: #2e7d32;
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+/* MAPS */
+iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 12px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================
+MUSIK OTOMATIS
+===================== -->
+<audio id="musik" loop>
+  <source src="musik.mp3" type="audio/mpeg">
+</audio>
+
+<!-- =====================
+OPENING (WAJIB KLIK)
+===================== -->
+<div class="overlay" id="open">
+  <h1>C & E</h1>
+  <p>Undangan Pernikahan</p>
+  <button onclick="buka()">Buka Undangan</button>
+</div>
+
+<!-- =====================
+HERO / FOTO
+===================== -->
+<div class="hero">
+  <h2>Cahya Indah Agustina</h2>
+  <p>&</p>
+  <h2>Muhammad Erlangga Shidiq, S.Sos</h2>
+</div>
+
+<div class="section">
+
+<!-- =====================
+DATA PENGANTIN
+===================== -->
+<div class="card">
+  <h3>Assalamu’alaikum Warahmatullahi Wabarakatuh</h3>
+  <p>
+    Cahya Indah Agustina<br>
+    Putri dari Bapak Firman Firdaus<br>
+    & Ibu Nurasiah
+  </p>
+  <p>
+    Muhammad Erlangga Shidiq, S.Sos<br>
+    Putra dari Bapak Mulyadi (Alm)<br>
+    & Ibu Siti Nurmilati
+  </p>
+</div>
+
+<!-- =====================
+DETAIL ACARA
+===================== -->
+<div class="card">
+  <h3>Resepsi Pernikahan</h3>
+  <p>
+    🗓 Minggu, 12 April 2026<br>
+    ⏰ 10.00 WIB<br>
+    📍 Gang Swadaya Kp. Pasir Ipis RT 02/08<br>
+    Kel. Karang Asem Barat, Kec. Citeureup<br>
+    Kab. Bogor
+  </p>
+</div>
+
+<!-- =====================
+COUNTDOWN
+===================== -->
+<div class="card">
+  <h3>Menuju Hari Bahagia</h3>
+  <div class="countdown">
+    <div class="time-box"><span id="days">0</span><br>Hari</div>
+    <div class="time-box"><span id="hours">0</span><br>Jam</div>
+    <div class="time-box"><span id="minutes">0</span><br>Menit</div>
+    <div class="time-box"><span id="seconds">0</span><br>Detik</div>
+  </div>
+</div>
+
+<!-- =====================
+MAPS
+===================== -->
+<div class="card">
+  <h3>Lokasi Acara</h3>
+  <iframe src="https://www.google.com/maps?q=-6.4927316,106.8709559&output=embed"></iframe>
+  <a class="btn" target="_blank"
+     href="https://www.google.com/maps/place/6%C2%B029'33.8%22S+106%C2%B052'15.4%22E">
+     Buka Google Maps
+  </a>
+</div>
+
+<!-- =====================
+RSVP & BUKU TAMU
+===================== -->
+<div class="card">
+  <h3>RSVP & Buku Tamu</h3>
+  <p>Mohon konfirmasi kehadiran dan doa Anda</p>
+  <a class="btn" target="_blank"
+     href="https://forms.gle/9miJpFx74BPsABaC8">
+     Isi Buku Tamu
+  </a>
+</div>
+
+</div>
+
+<footer>
+  © 2026 C & E
+</footer>
+
+<!-- =====================
+SCRIPT
+===================== -->
+<script>
+function buka() {
+  document.getElementById("open").style.display = "none";
+  document.getElementById("musik").play();
+}
+
+// COUNTDOWN
+const eventDate = new Date("April 12, 2026 10:00:00").getTime();
+
+setInterval(() => {
+  const now = new Date().getTime();
+  const diff = eventDate - now;
+
+  document.getElementById("days").innerText =
+    Math.floor(diff / (1000 * 60 * 60 * 24));
+  document.getElementById("hours").innerText =
+    Math.floor((diff / (1000 * 60 * 60)) % 24);
+  document.getElementById("minutes").innerText =
+    Math.floor((diff / (1000 * 60)) % 60);
+  document.getElementById("seconds").innerText =
+    Math.floor((diff / 1000) % 60);
+}, 1000);
+</script>
+
+</body>
+</html>
